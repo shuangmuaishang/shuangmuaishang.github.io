@@ -11,15 +11,15 @@
   <meta name="description" content="实现父元素容器不跟随子元素scroll滚动">
 <meta property="og:type" content="article">
 <meta property="og:title" content="实现父元素容器不跟随子元素scroll滚动">
-<meta property="og:url" content="http://yoursite.com/2017/08/01/scroll/index.html">
+<meta property="og:url" content="http://yoursite.com/2017/08/01/test/index.html">
 <meta property="og:site_name" content="Bright_Quiet&#39;s Blog">
 <meta property="og:description" content="实现父元素容器不跟随子元素scroll滚动">
-<meta property="og:image" content="http://yoursite.com/2017/08/01/scroll/c2486f899e510fb39567499ad333c895d0430cc1.jpg">
-<meta property="og:updated_time" content="2017-08-02T08:10:17.904Z">
+<meta property="og:image" content="http://yoursite.com/2017/08/01/test/c2486f899e510fb39567499ad333c895d0430cc1.jpg">
+<meta property="og:updated_time" content="2017-08-02T08:27:38.521Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="实现父元素容器不跟随子元素scroll滚动">
 <meta name="twitter:description" content="实现父元素容器不跟随子元素scroll滚动">
-<meta name="twitter:image" content="http://yoursite.com/2017/08/01/scroll/c2486f899e510fb39567499ad333c895d0430cc1.jpg">
+<meta name="twitter:image" content="http://yoursite.com/2017/08/01/test/c2486f899e510fb39567499ad333c895d0430cc1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Bright_Quiet&#39;s Blog" type="application/atom+xml">
   
@@ -157,7 +157,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-scroll" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-test" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -169,7 +169,7 @@
   
 
         
-        <a href="/2017/08/01/scroll/" class="archive-article-date">
+        <a href="/2017/08/01/test/" class="archive-article-date">
   	<time datetime="2017-08-01T01:59:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-01</time>
 </a>
         
@@ -179,16 +179,16 @@
       
         <p>实现父元素容器不跟随子元素scroll滚动<br><a id="more"></a><br>&emsp;&emsp;今天写项目的时候遇到了一个问题，是有关于滚轮操作的。那便是在子窗口滚动到最上面或者是最下面的时候，便开始进行父元素的滚动，这种情况时很烦人的，会严重影响用户的体验。</p>
 <p>#####看下面这个例子</p>
-<div style="width:200px;height:200px;overflow:scroll"><img src="/2017/08/01/scroll/c2486f899e510fb39567499ad333c895d0430cc1.jpg" width="200px" height="500px"></div>
+<div style="width:200px;height:200px;overflow:scroll"><img src="/2017/08/01/test/c2486f899e510fb39567499ad333c895d0430cc1.jpg" width="200px" height="500px"></div>
 
 <p>试想，如果看着看着内容父元素窗口开始滚动，是不是一件非常糟心的事情。于是，我经过一些学习，终于弄明白了这个问题，并找到了解决方案，分享一些自己的看法。</p>
 <p>####最开始的想法</p>
 <p>&emsp;&emsp;最开始我是想给目标div添加一个mousewheel事件，然后判断是否滚到顶部或者底部，然后再执行下面这个函数</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">event.preventDefault();   </div><div class="line">如果事件可取消，则取消该事件，而不停止事件的进一步传播。</div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;这里要提到一个叫wheelDelta的属性，滚轮向上滚动该属性返回120，向下滚动返回-120。<br>一测试，chrome浏览器成功运行，感觉棒棒哒。可想到要考虑一下浏览器兼容性的问题，于是用Firefox测试了一发，立马GG。<br>&emsp;&emsp;上网查了资料才发现火狐浏览器没有mousewheel事件，人家那叫DOMMouseScroll事件，而且wheelDelta对应的属性是detail，与wheelDelta不同的是，detail属性向上返回-3，向下返回3。<br>&emsp;&emsp;由于Firefox版本更新了，用document.getBoxObjectFor判断是否是Firefox浏览器已经行不通了，于是便用navigator.userAgent.indexOf(‘Firefox’) &gt;= 1 进行浏览器判断。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">(function () &#123;</div><div class="line">        var a = document.getElementById(&quot;testImage&quot;);</div><div class="line">        var eventType = &quot;mousewheel&quot;;</div><div class="line">        if (navigator.userAgent.indexOf(&apos;Firefox&apos;) &gt;= 1) &#123;</div><div class="line">            eventType = &quot;DOMMouseScroll&quot;;</div><div class="line">        &#125;</div><div class="line">        a.addEventListener(eventType, function (e) &#123;</div><div class="line">            var delta = e.wheelDelta ? e.wheelDelta : -(e.detail);</div><div class="line">            if (delta &gt; 0 &amp;&amp; a.scrollTop == 0)</div><div class="line">                e.preventDefault();</div><div class="line">            else if (delta &lt; 0 &amp;&amp; a.scrollTop == a.scrollHeight - a.clientHeight) &#123;</div><div class="line">                e.preventDefault();</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">&#125;)();</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;这里要提到一个叫wheelDelta的属性，滚轮向上滚动该属性返回120，向下滚动返回-120。<br>一测试，chrome浏览器成功运行，感觉棒棒哒。可想到要考虑一下浏览器兼容性的问题，于是用Firefox测试了一发，立马GG。<br>&emsp;&emsp;上网查了资料才发现火狐浏览器没有mousewheel事件，人家那叫DOMMouseScroll事件，而且wheelDelta对应的属性是detail，与wheelDelta不同的是，detail属性向上返回-3，向下返回3。<br>&emsp;&emsp;由于Firefox版本更新了，用document.getBoxObjectFor判断是否是Firefox浏览器已经行不通了，于是便用navigator.userAgent.indexOf(‘Firefox’) &gt;= 1 进行浏览器判断。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">function parentNotScroll() &#123;</div><div class="line">        var a = document.getElementById(&quot;testImage&quot;);</div><div class="line">        var eventType = &quot;mousewheel&quot;;</div><div class="line">        if (navigator.userAgent.indexOf(&apos;Firefox&apos;) &gt;= 1) &#123;</div><div class="line">            eventType = &quot;DOMMouseScroll&quot;;</div><div class="line">        &#125;</div><div class="line">        a.addEventListener(eventType, function (e) &#123;</div><div class="line">            var delta = e.wheelDelta ? e.wheelDelta : -(e.detail);</div><div class="line">            if (delta &gt; 0 &amp;&amp; a.scrollTop == 0)</div><div class="line">                e.preventDefault();</div><div class="line">            else if (delta &lt; 0 &amp;&amp; a.scrollTop == a.scrollHeight - a.clientHeight) &#123;</div><div class="line">                e.preventDefault();</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;测试一下，OK，很完美，这下子火狐也兼容了，接下来改一下对IE浏览器对默认动作的方式估计就可以啦~~声明以下这个函数，将上面的preventDefault()全部替换成stopDefault()。注意调用的时候直接用stopDefault()，而不要e.stopDefault()。。（当初在这里还被小小的坑了一下）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function stopDefault() &#123;</div><div class="line">        var e = arguments.callee.caller.arguments[0] || window.event;</div><div class="line">        if (e.preventDefault) &#123;//非IE</div><div class="line">            e.preventDefault();</div><div class="line">            //IE中阻止函数器默认动作的方式</div><div class="line">        &#125; else &#123;//IE</div><div class="line">            e.returnValue = false;</div><div class="line">        &#125;</div><div class="line">        return false;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;测试一下，恩，失败了，很难受。去查找原因吧。原来是滚动高度直接跳过了0，那我们要重新设计写法，不要到等到0或者最大滚动高度的时候再去阻止默认滚动，我们要在到达边界的前一个滚动，就开始下手，手动滚动到边界，同时用上述的stopDefault()阻止鼠标滚动行为。<br>&emsp;&emsp;测试了一下，总算成功了。呼~长出一口气。浏览器兼容性可真的是又复杂又麻烦啊。<br>最终代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">(function () &#123;</div><div class="line">        var a = document.getElementById(&quot;testImage&quot;);</div><div class="line">        var eventType = &quot;mousewheel&quot;;</div><div class="line">        if (navigator.userAgent.indexOf(&apos;Firefox&apos;) &gt;= 1) &#123;</div><div class="line">            eventType = &apos;DOMMouseScroll&apos;;     //判断是否为Firefox浏览器</div><div class="line">        &#125;</div><div class="line">        a.addEventListener(eventType, function (e) &#123;</div><div class="line">            var delta = e.wheelDelta ? e.wheelDelta : -(e.detail);</div><div class="line">            if ((delta &gt; 0 &amp;&amp; this.scrollTop &lt;= delta) || (delta &lt; 0 &amp;&amp; this.scrollHeight - this.clientHeight - this.scrollTop &lt;= -1 * delta)) &#123;</div><div class="line">                this.scrollTop = delta &gt; 0 ? 0 : this.scrollHeight;</div><div class="line">                stopDefault();</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        function stopDefault() &#123;</div><div class="line">            var e = arguments.callee.caller.arguments[0] || window.event;</div><div class="line">            if (e.preventDefault) &#123;//非IE</div><div class="line">                e.preventDefault();</div><div class="line">                //IE中阻止函数器默认动作的方式</div><div class="line">            &#125; else &#123;//IE</div><div class="line">                e.returnValue = false;</div><div class="line">            &#125;</div><div class="line">            return false;</div><div class="line">        &#125;</div><div class="line">    &#125;)();</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">function parentNotScroll() &#123;</div><div class="line">        var a = document.getElementById(&quot;testImage&quot;);</div><div class="line">        var eventType = &quot;mousewheel&quot;;</div><div class="line">        if (navigator.userAgent.indexOf(&apos;Firefox&apos;) &gt;= 1) &#123;</div><div class="line">            eventType = &apos;DOMMouseScroll&apos;;     //判断是否为Firefox浏览器</div><div class="line">        &#125;</div><div class="line">        a.addEventListener(eventType, function (e) &#123;</div><div class="line">            var delta = e.wheelDelta ? e.wheelDelta : -(e.detail);</div><div class="line">            if ((delta &gt; 0 &amp;&amp; this.scrollTop &lt;= delta) || (delta &lt; 0 &amp;&amp; this.scrollHeight - this.clientHeight - this.scrollTop &lt;= -1 * delta)) &#123;</div><div class="line">                this.scrollTop = delta &gt; 0 ? 0 : this.scrollHeight;</div><div class="line">                stopDefault();</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        function stopDefault() &#123;</div><div class="line">            var e = arguments.callee.caller.arguments[0] || window.event;</div><div class="line">            if (e.preventDefault) &#123;//非IE</div><div class="line">                e.preventDefault();</div><div class="line">                //IE中阻止函数器默认动作的方式</div><div class="line">            &#125; else &#123;//IE</div><div class="line">                e.returnValue = false;</div><div class="line">            &#125;</div><div class="line">            return false;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 <p>&emsp;&emsp;写的第一篇技术博客，心情还是很激动的，由于从事前端，若有什么问题，请指出，我一定会虚心学习的~</p>
 
       
@@ -248,7 +248,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/01/scroll/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/01/test/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -262,11 +262,15 @@
   
 <nav id="article-nav">
   
-  
-    <a href="/2017/08/01/test/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">实现父元素容器不跟随子元素scroll滚动</div>
-      <i class="icon-circle-right"></i>
+    <a href="/2017/08/01/scroll/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          实现父元素容器不跟随子元素scroll滚动
+        
+      </div>
     </a>
+  
   
 </nav>
 
