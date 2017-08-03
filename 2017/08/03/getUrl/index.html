@@ -6,17 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017/8 | Bright_Quiet&#39;s Blog</title>
+  <title>getUrl | Bright_Quiet&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这里是刘征杰的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Bright_Quiet&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/archives/2017/08/index.html">
+  <meta name="description" content="&amp;emsp;&amp;emsp;今天遇到了网页的url传参问题，接收的网页要接收之前页面传递过来的参数，如点击一个链接 &amp;lt;a href=&amp;quot;test.html?a=3&amp;amp;b=4&amp;amp;c=5&amp;quot;&amp;gt;点我啊&amp;lt;/a&amp;gt;,将会给链接的网页传递三个参数，分别为a=3，b=4，c=5，接下来，链接的页面该如何获取这些参数呢？方法有很多，比如正则，字符串分割。 字符串分割1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="getUrl">
+<meta property="og:url" content="http://yoursite.com/2017/08/03/getUrl/index.html">
 <meta property="og:site_name" content="Bright_Quiet&#39;s Blog">
-<meta property="og:description" content="这里是刘征杰的博客">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;今天遇到了网页的url传参问题，接收的网页要接收之前页面传递过来的参数，如点击一个链接 &amp;lt;a href=&amp;quot;test.html?a=3&amp;amp;b=4&amp;amp;c=5&amp;quot;&amp;gt;点我啊&amp;lt;/a&amp;gt;,将会给链接的网页传递三个参数，分别为a=3，b=4，c=5，接下来，链接的页面该如何获取这些参数呢？方法有很多，比如正则，字符串分割。 字符串分割1">
+<meta property="og:updated_time" content="2017-08-03T03:41:30.588Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bright_Quiet&#39;s Blog">
-<meta name="twitter:description" content="这里是刘征杰的博客">
+<meta name="twitter:title" content="getUrl">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;今天遇到了网页的url传参问题，接收的网页要接收之前页面传递过来的参数，如点击一个链接 &amp;lt;a href=&amp;quot;test.html?a=3&amp;amp;b=4&amp;amp;c=5&amp;quot;&amp;gt;点我啊&amp;lt;/a&amp;gt;,将会给链接的网页传递三个参数，分别为a=3，b=4，c=5，接下来，链接的页面该如何获取这些参数呢？方法有很多，比如正则，字符串分割。 字符串分割1">
   
     <link rel="alternative" href="/atom.xml" title="Bright_Quiet&#39;s Blog" type="application/atom+xml">
   
@@ -154,76 +155,139 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-getUrl" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      getUrl
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/03/getUrl/" class="archive-article-date">
+
+        
+        <a href="/2017/08/03/getUrl/" class="archive-article-date">
   	<time datetime="2017-08-03T03:28:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-03</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/03/getUrl/">getUrl</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&emsp;&emsp;今天遇到了网页的url传参问题，接收的网页要接收之前页面传递过来的参数，如点击一个链接 <code>&lt;a href=&quot;test.html?a=3&amp;b=4&amp;c=5&quot;&gt;点我啊&lt;/a&gt;</code>,将会给链接的网页传递三个参数，分别为a=3，b=4，c=5，接下来，链接的页面该如何获取这些参数呢？方法有很多，比如正则，字符串分割。</p>
+<h4 id="字符串分割"><a href="#字符串分割" class="headerlink" title="字符串分割"></a>字符串分割</h4><figure class="highlight qml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getUrl</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> <span class="built_in">url</span> = location.search;</div><div class="line">        <span class="keyword">if</span>(<span class="built_in">url</span>.indexOf(<span class="string">"?"</span>)!=<span class="number">-1</span>) &#123;</div><div class="line">            <span class="keyword">var</span> str = <span class="built_in">url</span>.substr(<span class="number">1</span>);</div><div class="line">            <span class="keyword">var</span> Request = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line">            <span class="keyword">var</span> str1 = str.split(<span class="string">"&amp;"</span>);</div><div class="line">            str1.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</div><div class="line">                Request[e.split(<span class="string">"="</span>)[<span class="number">0</span>]] = e.split(<span class="string">"="</span>)[<span class="number">1</span>];</div><div class="line">            &#125;);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> Request;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> request=getUrl();</div><div class="line">    <span class="keyword">var</span> a1=request[<span class="string">'参数1'</span>];</div><div class="line">    <span class="keyword">var</span> a2=request.参数<span class="number">2</span>;</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;由于正则表达式接触的还不够深入，就只先写了字符串分割的方法，后续我会在这里补充其他的方法。</p>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/03/getUrl/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/01/scroll/" class="archive-article-date">
-  	<time datetime="2017-08-01T01:59:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-01</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2017/08/01/scroll/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">实现父元素容器不跟随子元素scroll滚动</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/01/scroll/">实现父元素容器不跟随子元素scroll滚动</a>
-    </h1>
+  
+	
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -246,8 +310,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
