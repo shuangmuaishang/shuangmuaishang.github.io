@@ -163,7 +163,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/03/getUrl/">getUrl</a>
+      <a class="article-title" href="/2017/08/03/getUrl/">获取url传递的参数</a>
     </h1>
   
 
@@ -176,10 +176,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>&emsp;&emsp;今天遇到了网页的url传参问题，接收的网页要接收之前页面传递过来的参数，如点击一个链接 <code>&lt;a href=&quot;test.html?a=3&amp;b=4&amp;c=5&quot;&gt;点我啊&lt;/a&gt;</code>,将会给链接的网页传递三个参数，分别为a=3，b=4，c=5，接下来，链接的页面该如何获取这些参数呢？方法有很多，比如正则，字符串分割。</p>
-<h4 id="字符串分割"><a href="#字符串分割" class="headerlink" title="字符串分割"></a>字符串分割</h4><figure class="highlight qml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getUrl</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> <span class="built_in">url</span> = location.search;</div><div class="line">        <span class="keyword">if</span>(<span class="built_in">url</span>.indexOf(<span class="string">"?"</span>)!=<span class="number">-1</span>) &#123;</div><div class="line">            <span class="keyword">var</span> str = <span class="built_in">url</span>.substr(<span class="number">1</span>);</div><div class="line">            <span class="keyword">var</span> Request = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line">            <span class="keyword">var</span> str1 = str.split(<span class="string">"&amp;"</span>);</div><div class="line">            str1.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</div><div class="line">                Request[e.split(<span class="string">"="</span>)[<span class="number">0</span>]] = e.split(<span class="string">"="</span>)[<span class="number">1</span>];</div><div class="line">            &#125;);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> Request;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> request=getUrl();</div><div class="line">    <span class="keyword">var</span> a1=request[<span class="string">'参数1'</span>];</div><div class="line">    <span class="keyword">var</span> a2=request.参数<span class="number">2</span>;</div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;由于正则表达式接触的还不够深入，就只先写了字符串分割的方法，后续我会在这里补充其他的方法。</p>
-
+        <p>&emsp;&emsp;今天遇到了网页的url传参问题，接收的网页要接收之前页面传递过来的参数，如点击一个链接 <code>&lt;a href=&quot;test.html?a=3&amp;b=4&amp;c=5&quot;&gt;点我啊&lt;/a&gt;</code>,将会给链接的网页传递三个参数，分别为a=3，b=4，c=5，接下来，链接的页面该如何获取这些参数呢？方法有很多，比如正则，字符串分割。<br></p>
+        
+          <a class="article-more-a" href="/2017/08/03/getUrl/#more">more >></a>
+        
       
 
       
