@@ -6,17 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Bright_Quiet&#39;s Blog</title>
+  <title>canvas-line | Bright_Quiet&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这里是刘征杰的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Bright_Quiet&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="今天开始接触HTML5中的canvas属性，发现这东西玩起来很有意思，就跟小时候经常玩的画图工具似的，不过这里面的花头可就多了，今天先来看看画线的一些用法吧。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="canvas-line">
+<meta property="og:url" content="http://yoursite.com/2017/08/08/canvas-line/index.html">
 <meta property="og:site_name" content="Bright_Quiet&#39;s Blog">
-<meta property="og:description" content="这里是刘征杰的博客">
+<meta property="og:description" content="今天开始接触HTML5中的canvas属性，发现这东西玩起来很有意思，就跟小时候经常玩的画图工具似的，不过这里面的花头可就多了，今天先来看看画线的一些用法吧。">
+<meta property="og:image" content="http://yoursite.com/canvas-line/Browser.png">
+<meta property="og:updated_time" content="2017-08-08T10:46:10.111Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bright_Quiet&#39;s Blog">
-<meta name="twitter:description" content="这里是刘征杰的博客">
+<meta name="twitter:title" content="canvas-line">
+<meta name="twitter:description" content="今天开始接触HTML5中的canvas属性，发现这东西玩起来很有意思，就跟小时候经常玩的画图工具似的，不过这里面的花头可就多了，今天先来看看画线的一些用法吧。">
+<meta name="twitter:image" content="http://yoursite.com/canvas-line/Browser.png">
   
     <link rel="alternative" href="/atom.xml" title="Bright_Quiet&#39;s Blog" type="application/atom+xml">
   
@@ -154,16 +157,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-canvas-line" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-canvas-line" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/08/canvas-line/">canvas-line</a>
+    <h1 class="article-title" itemprop="name">
+      canvas-line
     </h1>
   
 
@@ -176,10 +177,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>今天开始接触HTML5中的canvas属性，发现这东西玩起来很有意思，就跟小时候经常玩的画图工具似的，不过这里面的花头可就多了，今天先来看看画线的一些用法吧。<br></p>
-        
-          <a class="article-more-a" href="/2017/08/08/canvas-line/#more">more >></a>
-        
+        <p>今天开始接触HTML5中的canvas属性，发现这东西玩起来很有意思，就跟小时候经常玩的画图工具似的，不过这里面的花头可就多了，今天先来看看画线的一些用法吧。<br><a id="more"></a></p>
+<h4 id="1-开始画布的配置"><a href="#1-开始画布的配置" class="headerlink" title="1. 开始画布的配置"></a>1. 开始画布的配置</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"c1"</span> &gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> <span class="built_in">c</span> = document.getElementById(<span class="string">"c1"</span>);</div><div class="line">        <span class="built_in">c</span>.width=<span class="number">1024</span>;    <span class="comment">//默认画布宽高为300*150，自行设置的话尽量不要在CSS中设置</span></div><div class="line">        <span class="built_in">c</span>.height=<span class="number">768</span>;</div><div class="line">         <span class="keyword">if</span>(<span class="built_in">c</span>.getContext(<span class="string">"2d"</span>))</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">var</span> ctx= <span class="built_in">c</span>.getContext(<span class="string">"2d"</span>);  <span class="comment">//判断浏览器兼容性</span></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span></div><div class="line">        &#123;</div><div class="line">            alert(<span class="string">"当前浏览器不支持canvas元素"</span>);</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
+<h5 id="以下是有关canvas的浏览器兼容性一图"><a href="#以下是有关canvas的浏览器兼容性一图" class="headerlink" title="以下是有关canvas的浏览器兼容性一图"></a>以下是有关canvas的浏览器兼容性一图</h5><p><img src="/canvas-line/Browser.png"></p>
+
       
 
       
@@ -190,16 +192,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/08/canvas-line/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/08/canvas-line/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/08/03/conversion/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">关于数据转换的巩固</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -219,203 +280,16 @@
 
 
 
-
   
-    <article id="post-conversion" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/03/conversion/">关于数据转换的巩固</a>
-    </h1>
+	
   
 
-        
-        <a href="/2017/08/03/conversion/" class="archive-article-date">
-  	<time datetime="2017-08-03T08:31:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>今天碰到了字符串转数字的要求，我习惯用的是<code>Number</code>方法，但是其他方法了解的就比较少了，于是我便把类型转换复习了一遍，顺便巩固一下自己的基础知识。<br></p>
-        
-          <a class="article-more-a" href="/2017/08/03/conversion/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/03/conversion/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
-    <article id="post-getUrl" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/03/getUrl/">获取url传递的参数</a>
-    </h1>
   
 
-        
-        <a href="/2017/08/03/getUrl/" class="archive-article-date">
-  	<time datetime="2017-08-03T03:28:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&emsp;&emsp;今天遇到了网页的url传参问题，接收的网页要接收之前页面传递过来的参数，如点击一个链接 <code>&lt;a href=&quot;test.html?a=3&amp;b=4&amp;c=5&quot;&gt;点我啊&lt;/a&gt;</code>,将会给链接的网页传递三个参数，分别为a=3，b=4，c=5，接下来，链接的页面该如何获取这些参数呢？方法有很多，比如正则，字符串分割。<br></p>
-        
-          <a class="article-more-a" href="/2017/08/03/getUrl/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/03/getUrl/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-scroll" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/01/scroll/">实现父元素容器不跟随子元素scroll滚动</a>
-    </h1>
   
 
-        
-        <a href="/2017/08/01/scroll/" class="archive-article-date">
-  	<time datetime="2017-08-01T01:59:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&emsp;&emsp;今天写项目的时候遇到了一个问题，是有关于滚轮操作的。那便是在子窗口滚动到最上面或者是最下面的时候，会开始进行父元素的滚动，这种情况时很烦人的，会严重影响用户的体验。<br></p>
-        
-          <a class="article-more-a" href="/2017/08/01/scroll/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/01/scroll/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
 
 
@@ -438,8 +312,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
