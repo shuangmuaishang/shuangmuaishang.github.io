@@ -6,20 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>canvas-line | Bright_Quiet&#39;s Blog</title>
+  <title>canvas的画线问题 | Bright_Quiet&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="今天开始接触HTML5中的canvas属性，发现这东西玩起来很有意思，就跟小时候经常玩的画图工具似的，不过这里面的花头可就多了，今天先来看看画线的一些用法吧。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="canvas-line">
+<meta property="og:title" content="canvas的画线问题">
 <meta property="og:url" content="http://yoursite.com/2017/08/08/canvas-line/index.html">
 <meta property="og:site_name" content="Bright_Quiet&#39;s Blog">
 <meta property="og:description" content="今天开始接触HTML5中的canvas属性，发现这东西玩起来很有意思，就跟小时候经常玩的画图工具似的，不过这里面的花头可就多了，今天先来看看画线的一些用法吧。">
-<meta property="og:image" content="http://yoursite.com/2017/08/08/canvas-line/Browser.png">
-<meta property="og:updated_time" content="2017-08-09T01:37:39.344Z">
+<meta property="og:image" content="http://yoursite.com/canvas-line/Browser.png">
+<meta property="og:image" content="http://yoursite.com/2017/08/08/canvas-line/square.png">
+<meta property="og:image" content="http://yoursite.com/2017/08/08/canvas-line/q-square.png">
+<meta property="og:image" content="http://yoursite.com/2017/08/08/canvas-line/q-square2.png">
+<meta property="og:image" content="http://yoursite.com/2017/08/08/canvas-line/zhexian.png">
+<meta property="og:image" content="http://yoursite.com/2017/08/08/canvas-line/lineJoin.png">
+<meta property="og:updated_time" content="2017-08-09T02:43:44.907Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="canvas-line">
+<meta name="twitter:title" content="canvas的画线问题">
 <meta name="twitter:description" content="今天开始接触HTML5中的canvas属性，发现这东西玩起来很有意思，就跟小时候经常玩的画图工具似的，不过这里面的花头可就多了，今天先来看看画线的一些用法吧。">
-<meta name="twitter:image" content="http://yoursite.com/2017/08/08/canvas-line/Browser.png">
+<meta name="twitter:image" content="http://yoursite.com/canvas-line/Browser.png">
   
     <link rel="alternative" href="/atom.xml" title="Bright_Quiet&#39;s Blog" type="application/atom+xml">
   
@@ -164,7 +169,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      canvas-line
+      canvas的画线问题
     </h1>
   
 
@@ -180,7 +185,22 @@
         <p>今天开始接触HTML5中的canvas属性，发现这东西玩起来很有意思，就跟小时候经常玩的画图工具似的，不过这里面的花头可就多了，今天先来看看画线的一些用法吧。<br><a id="more"></a></p>
 <h4 id="1-开始画布的配置"><a href="#1-开始画布的配置" class="headerlink" title="1. 开始画布的配置"></a>1. 开始画布的配置</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"c1"</span> &gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></div></pre></td></tr></table></figure>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> <span class="built_in">c</span> = document.getElementById(<span class="string">"c1"</span>);</div><div class="line">        <span class="built_in">c</span>.width=<span class="number">1024</span>;    <span class="comment">//默认画布宽高为300*150，自行设置的话尽量不要在CSS中设置</span></div><div class="line">        <span class="built_in">c</span>.height=<span class="number">768</span>;</div><div class="line">         <span class="keyword">if</span>(<span class="built_in">c</span>.getContext(<span class="string">"2d"</span>))</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">var</span> ctx= <span class="built_in">c</span>.getContext(<span class="string">"2d"</span>);  <span class="comment">//判断浏览器兼容性</span></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span></div><div class="line">        &#123;</div><div class="line">            alert(<span class="string">"当前浏览器不支持canvas元素"</span>);</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
-<h5 id="以下是有关canvas的浏览器兼容性一图"><a href="#以下是有关canvas的浏览器兼容性一图" class="headerlink" title="以下是有关canvas的浏览器兼容性一图"></a>以下是有关canvas的浏览器兼容性一图</h5><p><img src="/2017/08/08/canvas-line/Browser.png"></p>
+<h5 id="以下是有关canvas的浏览器兼容性一图"><a href="#以下是有关canvas的浏览器兼容性一图" class="headerlink" title="以下是有关canvas的浏览器兼容性一图"></a>以下是有关canvas的浏览器兼容性一图</h5><p><img src="/canvas-line/Browser.png"></p>
+<h4 id="2-开始画线，遇到缺角问题"><a href="#2-开始画线，遇到缺角问题" class="headerlink" title="2. 开始画线，遇到缺角问题"></a>2. 开始画线，遇到缺角问题</h4><p>代码如下：</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">ctx.moveTo(<span class="number">100</span>,<span class="number">100</span>);</div><div class="line">ctx.lineTo(<span class="number">200</span>,<span class="number">100</span>);</div><div class="line">ctx.lineTo(<span class="number">200</span>,<span class="number">200</span>);</div><div class="line">ctx.lineTo(<span class="number">100</span>,<span class="number">200</span>);</div><div class="line">ctx.lineTo(<span class="number">100</span>,<span class="number">100</span>);</div><div class="line">ctx.strokeStyle = <span class="string">"blue"</span>;   <span class="comment">//线条颜色</span></div><div class="line">ctx.lineWidth=<span class="number">10</span>;           <span class="comment">//线条宽度</span></div><div class="line">ctx.stroke();               <span class="comment">//开始填充</span></div></pre></td></tr></table></figure>
+<p>接下来有意思的事情就发生了。在chrome浏览器中图形的效果是这样的<br><img src="/2017/08/08/canvas-line/square.png"><br>没毛病。而在IE和Firefox浏览器中却是这样的<br><img src="/2017/08/08/canvas-line/q-square.png"><br>恩？怎么感觉左上角缺了一个角？<br>这是因为Canvas中的线条都有一条“中线”，这条中线位于line的绝对中间，线条的笔画以中线向两侧扩展。比如你的线条宽度是1，那么中线就在0.5的位置；宽度是5，那么中线就是在2.5。canvas的图形在描边的时候，都是路径与line的中线贴合，然后描边。<br>但为什么其余的角没有出现缺口呢？<br>那是因为，我画线的过程中没有把画笔“提起来”，画笔是连续的，即没有moveTo过。<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">ctx.moveTo(<span class="number">100</span>,<span class="number">100</span>);</div><div class="line">        ctx.lineTo(<span class="number">200</span>,<span class="number">100</span>);</div><div class="line">        ctx.moveTo(<span class="number">200</span>,<span class="number">100</span>);  <span class="comment">//这里我们重新moveTo了一下</span></div><div class="line">        ctx.lineTo(<span class="number">200</span>,<span class="number">200</span>);</div><div class="line">        ctx.lineTo(<span class="number">100</span>,<span class="number">200</span>);</div><div class="line">        ctx.lineTo(<span class="number">100</span>,<span class="number">100</span>);</div><div class="line">        ctx.strokeStyle = <span class="string">"blue"</span>;</div><div class="line">        ctx.lineWidth=<span class="number">10</span>;</div><div class="line">        ctx.stroke();</div></pre></td></tr></table></figure></p>
+<p><img src="/2017/08/08/canvas-line/q-square2.png"><br>结果所有浏览器的效果图都变成缺少了2个角，你可以将moveTo理解成为提笔。</p>
+<h4 id="3-closePath-方法解决缺角问题"><a href="#3-closePath-方法解决缺角问题" class="headerlink" title="3. .closePath()方法解决缺角问题"></a>3. <code>.closePath()</code>方法解决缺角问题</h4><p>那么言归正传，缺角问题该怎么解决呢？这时候就用到<code>.closePath()</code>方法。<br><code>.closePath()</code>方法可用来闭合路径。这里要说一下，lineTo并不能起到闭合路径的效果，它只是将路径最后一个点和起点重合了而已，路径本身却没有闭合。</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">ctx.moveTo(<span class="number">100</span>,<span class="number">100</span>);</div><div class="line">ctx.lineTo(<span class="number">200</span>,<span class="number">100</span>);</div><div class="line">ctx.lineTo(<span class="number">200</span>,<span class="number">200</span>);</div><div class="line">ctx.lineTo(<span class="number">100</span>,<span class="number">200</span>);</div><div class="line">ctx.lineTo(<span class="number">100</span>,<span class="number">100</span>);</div><div class="line">ctx.strokeStyle = <span class="string">"blue"</span>;</div><div class="line">ctx.lineWidth=<span class="number">10</span>;</div><div class="line">ctx.closePath();     <span class="comment">//新加的方法在这里哦~</span></div><div class="line">ctx.stroke();</div></pre></td></tr></table></figure>
+<p>另外关于<code>.closePath()</code>和<code>.stroke()</code>方法，其中顺序的问题也是有一定讲究的。<br>为了更清晰的比较，我们举一个简单折线的例子。</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">ctx.moveTo(<span class="number">100</span>,<span class="number">100</span>);</div><div class="line">ctx.lineTo(<span class="number">200</span>,<span class="number">100</span>);</div><div class="line">ctx.lineTo(<span class="number">200</span>,<span class="number">200</span>);</div><div class="line">ctx.lineTo(<span class="number">300</span>,<span class="number">200</span>);</div><div class="line">ctx.strokeStyle = <span class="string">"blue"</span>;</div><div class="line">ctx.lineWidth=<span class="number">10</span>;</div><div class="line">ctx.closePath();</div><div class="line">ctx.stroke();</div></pre></td></tr></table></figure>
+<p><img src="/2017/08/08/canvas-line/zhexian.png"><br>所有浏览器都呈现以上的效果。这是<code>.closePath()</code>先调用，此时绘制路径并没有关闭，那么<code>closePath()</code>将会用直线连接当前端点和起始端点。假如我们先调用了<code>.stroke()</code>，再调用了<code>.closePath()</code>。其实在调用<code>.stroke()</code>方法时，折线就已经绘制好了，当前的绘制路径也就被关闭掉了，所以再调用<code>.closePath()</code>方法时，它就不会使用直线连接当前端点和起始端点(也就是说，这里的<code>.closePath()</code>是可有可无的，不过为了保持良好的习惯，还是建议写上)。<br>与<code>.closePath()</code>对应的方法是<code>.beginPath()</code>。<code>beginPath()</code>方法将会清空内存中之前的绘制路径信息。如果不这样做，对于绘制单个图形可能没什么影响，但是在绘制多个图形时(例如上面示例的两条直线)，将会导致路径绘制或者颜色填充等操作出现任何意料之外的结果。</p>
+<h4 id="4-line的其他样式"><a href="#4-line的其他样式" class="headerlink" title="4. line的其他样式"></a>4. line的其他样式</h4><p>可以通过设置.lineJoin属性定义线的交汇处的样式，即边角。</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ctx.lineJoin=<span class="string">"round"</span>;  <span class="comment">//bevel创建斜角，round创建圆角，miter为默认，创建尖角</span></div></pre></td></tr></table></figure>
+<p><img src="/2017/08/08/canvas-line/lineJoin.png"><br>还可以通过设置lineClip属性定义线条的端点。<br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ctx.lineCap=<span class="string">"butt"</span>;  <span class="comment">//butt线段末端以方形结束，round线段末端以圆形结束，square线段末端以方形结束，但是增加了一个宽度和线段相同，高度是线段厚度一半的矩形区域</span></div></pre></td></tr></table></figure></p>
+<p>通过globalAlpha属性设置透明度。<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ctx.<span class="attribute">globalAlpha</span>=<span class="string">"0.5"</span>；</div></pre></td></tr></table></figure></p>
+<p>还有很多其他的属性，可以查阅官方文档进行了解。</p>
+<h3 id="结束感言"><a href="#结束感言" class="headerlink" title="结束感言"></a>结束感言</h3><p>这次只是了解了canvas的画线问题，算是比较基础的，接下来我会学习更深入的问题，这篇文章将来还会更新。</p>
 
       
 
