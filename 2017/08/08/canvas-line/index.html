@@ -14,12 +14,12 @@
 <meta property="og:url" content="http://yoursite.com/2017/08/08/canvas-line/index.html">
 <meta property="og:site_name" content="Bright_Quiet&#39;s Blog">
 <meta property="og:description" content="今天开始接触HTML5中的canvas属性，发现这东西玩起来很有意思，就跟小时候经常玩的画图工具似的，不过这里面的花头可就多了，今天先来看看画线的一些用法吧。">
-<meta property="og:image" content="http://yoursite.com/canvas-line/Browser.png">
-<meta property="og:updated_time" content="2017-08-08T10:46:10.111Z">
+<meta property="og:image" content="http://yoursite.com/2017/08/08/canvas-line/Browser.png">
+<meta property="og:updated_time" content="2017-08-09T01:37:39.344Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="canvas-line">
 <meta name="twitter:description" content="今天开始接触HTML5中的canvas属性，发现这东西玩起来很有意思，就跟小时候经常玩的画图工具似的，不过这里面的花头可就多了，今天先来看看画线的一些用法吧。">
-<meta name="twitter:image" content="http://yoursite.com/canvas-line/Browser.png">
+<meta name="twitter:image" content="http://yoursite.com/2017/08/08/canvas-line/Browser.png">
   
     <link rel="alternative" href="/atom.xml" title="Bright_Quiet&#39;s Blog" type="application/atom+xml">
   
@@ -180,7 +180,7 @@
         <p>今天开始接触HTML5中的canvas属性，发现这东西玩起来很有意思，就跟小时候经常玩的画图工具似的，不过这里面的花头可就多了，今天先来看看画线的一些用法吧。<br><a id="more"></a></p>
 <h4 id="1-开始画布的配置"><a href="#1-开始画布的配置" class="headerlink" title="1. 开始画布的配置"></a>1. 开始画布的配置</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"c1"</span> &gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></div></pre></td></tr></table></figure>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> <span class="built_in">c</span> = document.getElementById(<span class="string">"c1"</span>);</div><div class="line">        <span class="built_in">c</span>.width=<span class="number">1024</span>;    <span class="comment">//默认画布宽高为300*150，自行设置的话尽量不要在CSS中设置</span></div><div class="line">        <span class="built_in">c</span>.height=<span class="number">768</span>;</div><div class="line">         <span class="keyword">if</span>(<span class="built_in">c</span>.getContext(<span class="string">"2d"</span>))</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">var</span> ctx= <span class="built_in">c</span>.getContext(<span class="string">"2d"</span>);  <span class="comment">//判断浏览器兼容性</span></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span></div><div class="line">        &#123;</div><div class="line">            alert(<span class="string">"当前浏览器不支持canvas元素"</span>);</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
-<h5 id="以下是有关canvas的浏览器兼容性一图"><a href="#以下是有关canvas的浏览器兼容性一图" class="headerlink" title="以下是有关canvas的浏览器兼容性一图"></a>以下是有关canvas的浏览器兼容性一图</h5><p><img src="/canvas-line/Browser.png"></p>
+<h5 id="以下是有关canvas的浏览器兼容性一图"><a href="#以下是有关canvas的浏览器兼容性一图" class="headerlink" title="以下是有关canvas的浏览器兼容性一图"></a>以下是有关canvas的浏览器兼容性一图</h5><p><img src="/2017/08/08/canvas-line/Browser.png"></p>
 
       
 
