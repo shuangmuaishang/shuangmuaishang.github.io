@@ -6,11 +6,11 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>canvas的画线问题 | Bright_Quiet&#39;s Blog</title>
+  <title>canvas-line | Bright_Quiet&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="今天开始接触HTML5中的canvas属性，发现这东西玩起来很有意思，就跟小时候经常玩的画图工具似的，不过这里面的花头可就多了，今天先来看看画线的一些用法吧。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="canvas的画线问题">
+<meta property="og:title" content="canvas-line">
 <meta property="og:url" content="http://yoursite.com/2017/08/08/canvas-line/index.html">
 <meta property="og:site_name" content="Bright_Quiet&#39;s Blog">
 <meta property="og:description" content="今天开始接触HTML5中的canvas属性，发现这东西玩起来很有意思，就跟小时候经常玩的画图工具似的，不过这里面的花头可就多了，今天先来看看画线的一些用法吧。">
@@ -20,9 +20,10 @@
 <meta property="og:image" content="http://yoursite.com/2017/08/08/canvas-line/q-square2.png">
 <meta property="og:image" content="http://yoursite.com/2017/08/08/canvas-line/zhexian.png">
 <meta property="og:image" content="http://yoursite.com/2017/08/08/canvas-line/lineJoin.png">
-<meta property="og:updated_time" content="2017-08-09T02:43:44.907Z">
+<meta property="og:image" content="http://yoursite.com/2017/08/08/canvas-line/lineCap.png">
+<meta property="og:updated_time" content="2017-08-09T02:49:38.758Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="canvas的画线问题">
+<meta name="twitter:title" content="canvas-line">
 <meta name="twitter:description" content="今天开始接触HTML5中的canvas属性，发现这东西玩起来很有意思，就跟小时候经常玩的画图工具似的，不过这里面的花头可就多了，今天先来看看画线的一些用法吧。">
 <meta name="twitter:image" content="http://yoursite.com/canvas-line/Browser.png">
   
@@ -169,7 +170,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      canvas的画线问题
+      canvas-line
     </h1>
   
 
@@ -198,7 +199,7 @@
 <h4 id="4-line的其他样式"><a href="#4-line的其他样式" class="headerlink" title="4. line的其他样式"></a>4. line的其他样式</h4><p>可以通过设置.lineJoin属性定义线的交汇处的样式，即边角。</p>
 <figure class="highlight 1c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ctx.lineJoin=<span class="string">"round"</span>;  <span class="comment">//bevel创建斜角，round创建圆角，miter为默认，创建尖角</span></div></pre></td></tr></table></figure>
 <p><img src="/2017/08/08/canvas-line/lineJoin.png"><br>还可以通过设置lineClip属性定义线条的端点。<br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ctx.lineCap=<span class="string">"butt"</span>;  <span class="comment">//butt线段末端以方形结束，round线段末端以圆形结束，square线段末端以方形结束，但是增加了一个宽度和线段相同，高度是线段厚度一半的矩形区域</span></div></pre></td></tr></table></figure></p>
-<p>通过globalAlpha属性设置透明度。<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ctx.<span class="attribute">globalAlpha</span>=<span class="string">"0.5"</span>；</div></pre></td></tr></table></figure></p>
+<p><img src="/2017/08/08/canvas-line/lineCap.png"><br>通过globalAlpha属性设置透明度。<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ctx.<span class="attribute">globalAlpha</span>=<span class="string">"0.5"</span>；</div></pre></td></tr></table></figure></p>
 <p>还有很多其他的属性，可以查阅官方文档进行了解。</p>
 <h3 id="结束感言"><a href="#结束感言" class="headerlink" title="结束感言"></a>结束感言</h3><p>这次只是了解了canvas的画线问题，算是比较基础的，接下来我会学习更深入的问题，这篇文章将来还会更新。</p>
 
