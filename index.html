@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Bright_Quiet&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这里是刘征杰的博客">
+  <meta name="description" content="这里是Bright_Quiet的博客">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Bright_Quiet&#39;s Blog">
 <meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="Bright_Quiet&#39;s Blog">
-<meta property="og:description" content="这里是刘征杰的博客">
+<meta property="og:description" content="这里是Bright_Quiet的博客">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Bright_Quiet&#39;s Blog">
-<meta name="twitter:description" content="这里是刘征杰的博客">
+<meta name="twitter:description" content="这里是Bright_Quiet的博客">
   
     <link rel="alternative" href="/atom.xml" title="Bright_Quiet&#39;s Blog" type="application/atom+xml">
   
@@ -66,7 +66,7 @@
 		<nav class="header-smart-menu">
     		
     			
-    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
+    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">检索文章</a>
     			
             
     			
@@ -227,8 +227,6 @@
       
         <p>今天我在看到添加事件的看到了 <code>var e=e||window.event</code>这个语句，了解了用法以后并且顺藤摸瓜知道了短路算法。<br></p>
         
-          <a class="article-more-a" href="/2017/08/12/windowEvent/#more">more >></a>
-        
       
 
       
@@ -307,8 +305,6 @@
       
         <p>今天在用原生js写图片轮播图的时候，发现li标签之间总是存在着间隙，即使清除了浏览器的默认样式也不管用。<br></p>
         
-          <a class="article-more-a" href="/2017/08/11/li-style/#more">more >></a>
-        
       
 
       
@@ -386,8 +382,6 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>今天开始接触HTML5中的canvas属性，发现这东西玩起来很有意思，就跟小时候经常玩的画图工具似的，不过这里面的花头可就多了，今天先来看看画线的一些用法吧。<br></p>
-        
-          <a class="article-more-a" href="/2017/08/08/canvas-line/#more">more >></a>
         
       
 
@@ -478,8 +472,6 @@
       
         <p>今天碰到了字符串转数字的要求，我习惯用的是<code>Number</code>方法，但是其他方法了解的就比较少了，于是我便把类型转换复习了一遍，顺便巩固一下自己的基础知识。<br></p>
         
-          <a class="article-more-a" href="/2017/08/03/conversion/#more">more >></a>
-        
       
 
       
@@ -487,6 +479,21 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -542,8 +549,6 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>&emsp;&emsp;今天遇到了网页的url传参问题，接收的网页要接收之前页面传递过来的参数，如点击一个链接 <code>&lt;a href=&quot;test.html?a=3&amp;b=4&amp;c=5&quot;&gt;点我啊&lt;/a&gt;</code>,将会给链接的网页传递三个参数，分别为a=3，b=4，c=5，接下来，链接的页面该如何获取这些参数呢？方法有很多，比如正则，字符串分割。<br></p>
-        
-          <a class="article-more-a" href="/2017/08/03/getUrl/#more">more >></a>
         
       
 
@@ -622,8 +627,6 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>&emsp;&emsp;今天写项目的时候遇到了一个问题，是有关于滚轮操作的。那便是在子窗口滚动到最上面或者是最下面的时候，会开始进行父元素的滚动，这种情况时很烦人的，会严重影响用户的体验。<br></p>
-        
-          <a class="article-more-a" href="/2017/08/01/scroll/#more">more >></a>
         
       
 
@@ -762,7 +765,7 @@ MathJax.Hub.Queue(function() {
     
     
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">检索文章</a></li>
       
         
       
@@ -787,15 +790,15 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">canvas</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">学习笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">canvas</a>
               </li>
             
             <div class="clearfix"></div>
