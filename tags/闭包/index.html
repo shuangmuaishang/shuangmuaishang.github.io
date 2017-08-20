@@ -6,19 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>关于数据转换的巩固 | Bright_Quiet&#39;s Blog</title>
+  <title>Tag: 闭包 | Bright_Quiet&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="今天碰到了字符串转数字的要求，我习惯用的是Number方法，但是其他方法了解的就比较少了，于是我便把类型转换复习了一遍，顺便巩固一下自己的基础知识。">
-<meta name="keywords" content="基本数据类型">
-<meta property="og:type" content="article">
-<meta property="og:title" content="关于数据转换的巩固">
-<meta property="og:url" content="http://yoursite.com/2017/08/03/conversion/index.html">
+  <meta name="description" content="这里是Bright_Quiet的博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bright_Quiet&#39;s Blog">
+<meta property="og:url" content="http://yoursite.com/tags/闭包/index.html">
 <meta property="og:site_name" content="Bright_Quiet&#39;s Blog">
-<meta property="og:description" content="今天碰到了字符串转数字的要求，我习惯用的是Number方法，但是其他方法了解的就比较少了，于是我便把类型转换复习了一遍，顺便巩固一下自己的基础知识。">
-<meta property="og:updated_time" content="2017-08-16T04:15:00.948Z">
+<meta property="og:description" content="这里是Bright_Quiet的博客">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于数据转换的巩固">
-<meta name="twitter:description" content="今天碰到了字符串转数字的要求，我习惯用的是Number方法，但是其他方法了解的就比较少了，于是我便把类型转换复习了一遍，顺便巩固一下自己的基础知识。">
+<meta name="twitter:title" content="Bright_Quiet&#39;s Blog">
+<meta name="twitter:description" content="这里是Bright_Quiet的博客">
   
     <link rel="alternative" href="/atom.xml" title="Bright_Quiet&#39;s Blog" type="application/atom+xml">
   
@@ -142,84 +140,48 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-conversion" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      关于数据转换的巩固
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/08/20/clouse/" class="archive-article-date">
+  	<time datetime="2017-08-20T06:58:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-20</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/08/20/clouse/">有关闭包的最终值问题</a>
     </h1>
   
 
-        
-        <a href="/2017/08/03/conversion/" class="archive-article-date">
-  	<time datetime="2017-08-03T08:31:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>今天碰到了字符串转数字的要求，我习惯用的是<code>Number</code>方法，但是其他方法了解的就比较少了，于是我便把类型转换复习了一遍，顺便巩固一下自己的基础知识。<br><a id="more"></a></p>
-<ol>
-<li>字符串转数字，可用<code>Number()</code>、<code>parseInt()</code></li>
-<li>数字转字符串，可用<code>String()</code>、<code>toString()</code><h3 id="使用Number函数，可以将任意类型的值转化成数值。"><a href="#使用Number函数，可以将任意类型的值转化成数值。" class="headerlink" title="使用Number函数，可以将任意类型的值转化成数值。"></a>使用<code>Number</code>函数，可以将任意类型的值转化成数值。</h3><h4 id="原始类型转换"><a href="#原始类型转换" class="headerlink" title="原始类型转换"></a>原始类型转换</h4><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 数值：转换后还是原来的值</span></div><div class="line"><span class="function"><span class="title">Number</span><span class="params">(<span class="number">123</span>)</span></span> <span class="comment">// 123</span></div><div class="line"></div><div class="line"><span class="comment">// 字符串：如果可以被解析为数值，则转换为相应的数值</span></div><div class="line"><span class="function"><span class="title">Number</span><span class="params">(<span class="string">'123'</span>)</span></span> <span class="comment">// 123</span></div><div class="line"></div><div class="line"><span class="comment">// 字符串：如果不可以被解析为数值，返回NaN</span></div><div class="line"><span class="function"><span class="title">Number</span><span class="params">(<span class="string">'123abc'</span>)</span></span> <span class="comment">// NaN</span></div><div class="line"></div><div class="line"><span class="comment">//Number转换要求比parseInt严格</span></div><div class="line"><span class="function"><span class="title">Number</span><span class="params">(<span class="string">'123 abc'</span>)</span></span> <span class="comment">// NaN</span></div><div class="line"><span class="function"><span class="title">parseInt</span><span class="params">(<span class="string">'123 abc'</span>)</span></span> <span class="comment">// 42</span></div><div class="line"></div><div class="line"><span class="comment">// 空字符串转为0</span></div><div class="line"><span class="function"><span class="title">Number</span><span class="params">(<span class="string">''</span>)</span></span> <span class="comment">// 0</span></div><div class="line"></div><div class="line"><span class="comment">// 布尔值：true 转成1，false 转成0</span></div><div class="line"><span class="function"><span class="title">Number</span><span class="params">(true)</span></span> <span class="comment">// 1</span></div><div class="line"><span class="function"><span class="title">Number</span><span class="params">(false)</span></span> <span class="comment">// 0</span></div><div class="line"></div><div class="line"><span class="comment">// undefined：转成 NaN</span></div><div class="line"><span class="function"><span class="title">Number</span><span class="params">(undefined)</span></span> <span class="comment">// NaN</span></div><div class="line"></div><div class="line"><span class="comment">// null：转成0</span></div><div class="line"><span class="function"><span class="title">Number</span><span class="params">(null)</span></span> <span class="comment">// 0</span></div></pre></td></tr></table></figure>
-</li>
-</ol>
-<h4 id="对象转换"><a href="#对象转换" class="headerlink" title="对象转换"></a>对象转换</h4><p><code>Number</code>方法的参数是对象时，将返回<code>NaN</code>，除非是包含单个数值的数组。<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">Number</span><span class="params">(&#123;a: <span class="number">1</span>&#125;)</span></span> <span class="comment">// NaN</span></div><div class="line"><span class="function"><span class="title">Number</span><span class="params">([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span></span> <span class="comment">// NaN</span></div><div class="line"><span class="function"><span class="title">Number</span><span class="params">([<span class="number">5</span>])</span></span> <span class="comment">// 5</span></div></pre></td></tr></table></figure></p>
-<p>后来得知了<code>Number</code>方法的转换规则：</p>
-<blockquote>
-<ol>
-<li><p>调用对象自身的<code>valueOf</code>方法。如果返回原始类型的值，则直接对该值使用Number函数，不再进行后续步骤。</p>
-</li>
-<li><p>如果<code>valueOf</code>方法返回的还是对象，则改为调用对象自身的<code>toString</code>方法。如果<code>toString</code>方法返回原始类型的值，则对该值使用<code>Number</code>函数，不再进行后续步骤。</p>
-</li>
-<li><p>如果<code>toString</code>方法返回的是对象，就报错。</p>
-</li>
-</ol>
-</blockquote>
-<h3 id="使用String函数，可以将任意类型的值转化成字符串。"><a href="#使用String函数，可以将任意类型的值转化成字符串。" class="headerlink" title="使用String函数，可以将任意类型的值转化成字符串。"></a>使用<code>String</code>函数，可以将任意类型的值转化成字符串。</h3><h4 id="原始类型转换-1"><a href="#原始类型转换-1" class="headerlink" title="原始类型转换"></a>原始类型转换</h4><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">String</span><span class="params">(<span class="number">123</span>)</span></span> <span class="comment">// "123"</span></div><div class="line"><span class="function"><span class="title">String</span><span class="params">(<span class="string">'abc'</span>)</span></span> <span class="comment">// "abc"</span></div><div class="line"><span class="function"><span class="title">String</span><span class="params">(true)</span></span> <span class="comment">// "true"</span></div><div class="line"><span class="function"><span class="title">String</span><span class="params">(undefined)</span></span> <span class="comment">// "undefined"</span></div><div class="line"><span class="function"><span class="title">String</span><span class="params">(null)</span></span> <span class="comment">// "null"</span></div></pre></td></tr></table></figure>
-<h4 id="对象转换-1"><a href="#对象转换-1" class="headerlink" title="对象转换"></a>对象转换</h4><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">String</span><span class="params">(&#123;a: <span class="number">1</span>&#125;)</span></span> <span class="comment">// "[object Object]"</span></div><div class="line"><span class="function"><span class="title">String</span><span class="params">([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span></span> <span class="comment">// "1,2,3"</span></div></pre></td></tr></table></figure>
-<p><code>String</code>方法背后的转换规则，与<code>Number</code>方法基本相同，只是互换了<code>valueOf</code>方法和<code>toString</code>方法的执行顺序。</p>
-<blockquote>
-<ol>
-<li><p>先调用对象自身的toString方法。如果返回原始类型的值，则对该值使用String函数，不再进行以下步骤。</p>
-</li>
-<li><p>如果toString方法返回的是对象，再调用原对象的valueOf方法。如果valueOf方法返回原始类型的值，则对该值使用String函数，不再进行以下步骤。</p>
-</li>
-<li><p>如果valueOf方法返回的是对象，就报错。</p>
-</li>
-</ol>
-</blockquote>
-<p><strong>.toString()和String()的区别</strong></p>
-<ol>
-<li><code>.toString()</code>可以将所有的的数据都转换为字符串，但是要排除<code>null</code>和 <code>undefined</code></li>
-<li><code>String()</code>可以将<code>null</code>和<code>undefined</code>转换为字符串，但是没法转进制字符串</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="literal">null</span>.toString())       /报错</div><div class="line"><span class="built_in">console</span>.log(<span class="literal">undefined</span>.toString())  /报错</div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">String</span>(<span class="literal">null</span>))          /<span class="literal">null</span></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">String</span>(<span class="literal">undefined</span>))     /<span class="literal">undefined</span></div></pre></td></tr></table></figure>
-<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>呼，先写到这里，下面可能还会有更新</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">基本数据类型</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">闭包</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -236,128 +198,17 @@
 	</div>
 
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/03/conversion/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/08/08/canvas-line/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          利用canvas画线遇到的诸多问题
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/08/03/getUrl/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">获取url传递的参数</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用Number函数，可以将任意类型的值转化成数值。"><span class="toc-number">1.</span> <span class="toc-text">使用Number函数，可以将任意类型的值转化成数值。</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#原始类型转换"><span class="toc-number">1.1.</span> <span class="toc-text">原始类型转换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#对象转换"><span class="toc-number">1.2.</span> <span class="toc-text">对象转换</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用String函数，可以将任意类型的值转化成字符串。"><span class="toc-number">2.</span> <span class="toc-text">使用String函数，可以将任意类型的值转化成字符串。</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#原始类型转换-1"><span class="toc-number">2.1.</span> <span class="toc-text">原始类型转换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#对象转换-1"><span class="toc-number">2.2.</span> <span class="toc-text">对象转换</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结语"><span class="toc-number">3.</span> <span class="toc-text">结语</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
-	
+    </div></section>
   
 
-  
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -380,9 +231,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
