@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Category: HTML | Bright_Quiet&#39;s Blog</title>
+  <title>dom操作碰到的一些问题 | Bright_Quiet&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这里是Bright_Quiet的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Bright_Quiet&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/categories/HTML/index.html">
+  <meta name="description" content="今天在进行dom操作的时候碰到了一些问题，第一个便是queryselector和getElementsByTagName()的一些区别。。。">
+<meta name="keywords" content="DOM操作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="dom操作碰到的一些问题">
+<meta property="og:url" content="http://yoursite.com/2017/08/26/dom/index.html">
 <meta property="og:site_name" content="Bright_Quiet&#39;s Blog">
-<meta property="og:description" content="这里是Bright_Quiet的博客">
+<meta property="og:description" content="今天在进行dom操作的时候碰到了一些问题，第一个便是queryselector和getElementsByTagName()的一些区别。。。">
+<meta property="og:updated_time" content="2017-08-26T07:30:59.944Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bright_Quiet&#39;s Blog">
-<meta name="twitter:description" content="这里是Bright_Quiet的博客">
+<meta name="twitter:title" content="dom操作碰到的一些问题">
+<meta name="twitter:description" content="今天在进行dom操作的时候碰到了一些问题，第一个便是queryselector和getElementsByTagName()的一些区别。。。">
   
     <link rel="alternative" href="/atom.xml" title="Bright_Quiet&#39;s Blog" type="application/atom+xml">
   
@@ -140,43 +142,62 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-dom" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/11/li-style/" class="archive-article-date">
-  	<time datetime="2017-08-11T06:08:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-11</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/11/li-style/">有关li之间的空隙</a>
+    <h1 class="article-title" itemprop="name">
+      dom操作碰到的一些问题
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
+        
+        <a href="/2017/08/26/dom/" class="archive-article-date">
+  	<time datetime="2017-08-26T06:53:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天在进行dom操作的时候碰到了一些问题，第一个便是queryselector和getElementsByTagName()的一些区别。。。<br><a id="more"></a></p>
+<h4 id="先看以下代码"><a href="#先看以下代码" class="headerlink" title="先看以下代码"></a>先看以下代码</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"parent"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>1<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>2<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> btn=<span class="built_in">document</span>.getElementById(<span class="string">"parent"</span>).getElementsByTagName(<span class="string">"button"</span>);</div><div class="line"><span class="built_in">console</span>.log(btn.length);         <span class="comment">//输出2</span></div><div class="line"><span class="keyword">var</span> btn1=<span class="built_in">document</span>.createElement(<span class="string">"button"</span>);</div><div class="line"><span class="built_in">document</span>.getElementById(<span class="string">"parent"</span>).appendChild(btn1);</div><div class="line"><span class="built_in">console</span>.log(btn.length);         <span class="comment">//输出3</span></div></pre></td></tr></table></figure>
+<p>当时碰到这个问题我是一脸懵逼的，因为我只有在最开始的时候获取了btn元素，后来我新添了子节点以后并没有重新获取btn元素，元素长度反而自动改变。<br>后来查了资料以后才得知，<code>querySelectorAll</code> 返回的是一个 Static Node List，而 <code>getElementsBy</code> 系列的返回的是一个 Live Node List， 每一次调用 lis 都会重新对文档进行查询。而且一般<code>getElementsBy</code> 系列运行的速度也比<code>querySelectorAll</code> 快很多。</p>
+<h4 id="再看以下代码"><a href="#再看以下代码" class="headerlink" title="再看以下代码"></a>再看以下代码</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"parent"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>1<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>2<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var <span class="keyword">node</span><span class="title">=document</span>.getElementById(<span class="string">"parent"</span>);</div><div class="line">    console.log(<span class="keyword">node</span>.<span class="title">firstChild</span>);    //输出<span class="comment">#text</span></div></pre></td></tr></table></figure>
+<p>返回了一个文本节点的nodeName，这是为什么呢？<br>这是因为在<code>&lt;div&gt;</code>和第一个<code>&lt;button&gt;</code>之间产生了一个空行，编译的时候默认为了一个文本节点。所以，一般我们想选取第一个元素节点的时候要用<code>ele.firstElementChild</code>这个属性。</p>
+<h4 id="付诸实践"><a href="#付诸实践" class="headerlink" title="付诸实践"></a>付诸实践</h4><p>今天在网上看到一个题目，是说在网页中生成一个ul，里面有100个li，每个li的内容从上到下内容从1-100。生成结束1秒钟后，将100个li颠倒过来，内容也就变成了100-1。<br>要求：不许使用了<code>innerHTML</code>以及<code>innerText</code>这两个方法，兼容性到<code>IE8+</code><br>下面是我写的代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ul=<span class="built_in">document</span>.createElement(<span class="string">"ul"</span>);</div><div class="line">    <span class="built_in">document</span>.body.appendChild(ul);</div><div class="line"></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">100</span>;i++)&#123;</div><div class="line">        <span class="keyword">var</span> li=<span class="built_in">document</span>.createElement(<span class="string">"li"</span>);</div><div class="line">        <span class="keyword">var</span> text=<span class="built_in">document</span>.createTextNode(i);</div><div class="line">        li.appendChild(text);</div><div class="line">        ul.appendChild(li);</div><div class="line">    &#125;</div><div class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">100</span>;i++)&#123;</div><div class="line">            ul.insertBefore(ul.lastElementChild,diandao(i));</div><div class="line">        &#125;</div><div class="line">    &#125;,<span class="number">1000</span>);</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">diandao</span>(<span class="params">pos</span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> change=ul.firstElementChild;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;pos;i++)&#123;</div><div class="line">            change=change.nextElementSibling;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> change;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>今天多掌握了一些dom操作，不过还有很多需要自己去挖掘。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">DOM操作</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/HTML/" class="article-tag-list-link color5">HTML</a>
+        			<a href="/categories/javascript/" class="article-tag-list-link color1">javascript</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -187,17 +208,119 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/26/dom/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/08/20/clouse/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">有关闭包的最终值问题</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#先看以下代码"><span class="toc-number">1.</span> <span class="toc-text">先看以下代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#再看以下代码"><span class="toc-number">2.</span> <span class="toc-text">再看以下代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#付诸实践"><span class="toc-number">3.</span> <span class="toc-text">付诸实践</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结语"><span class="toc-number"></span> <span class="toc-text">结语</span></a>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
+	
   
 
-    
+  
+  
+
+  
+
+  
 
 
           </div>
@@ -220,10 +343,10 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
 		root: "/",
