@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 兼容性 | Bright_Quiet&#39;s Blog</title>
+  <title>关于两栏布局和三栏布局（自适应） | Bright_Quiet&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这里是Bright_Quiet的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Bright_Quiet&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/tags/兼容性/index.html">
+  <meta name="description" content="今天琢磨了一下两栏布局。。。">
+<meta name="keywords" content="float，absolute">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于两栏布局和三栏布局（自适应）">
+<meta property="og:url" content="http://yoursite.com/2017/08/27/layout/index.html">
 <meta property="og:site_name" content="Bright_Quiet&#39;s Blog">
-<meta property="og:description" content="这里是Bright_Quiet的博客">
+<meta property="og:description" content="今天琢磨了一下两栏布局。。。">
+<meta property="og:updated_time" content="2017-08-27T11:16:52.611Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bright_Quiet&#39;s Blog">
-<meta name="twitter:description" content="这里是Bright_Quiet的博客">
+<meta name="twitter:title" content="关于两栏布局和三栏布局（自适应）">
+<meta name="twitter:description" content="今天琢磨了一下两栏布局。。。">
   
     <link rel="alternative" href="/atom.xml" title="Bright_Quiet&#39;s Blog" type="application/atom+xml">
   
@@ -140,48 +142,50 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-layout" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/12/windowEvent/" class="archive-article-date">
-  	<time datetime="2017-08-12T05:11:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-12</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/12/windowEvent/">var e=e||window.event语句的含义</a>
+    <h1 class="article-title" itemprop="name">
+      关于两栏布局和三栏布局（自适应）
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/08/27/layout/" class="archive-article-date">
+  	<time datetime="2017-08-27T10:59:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天琢磨了一下两栏布局。。。<br><a id="more"></a></p>
+<h4 id="两栏布局"><a href="#两栏布局" class="headerlink" title="两栏布局"></a>两栏布局</h4><p>做到左端固定宽度，右边自适应</p>
+<h5 id="position-absolute-方法"><a href="#position-absolute-方法" class="headerlink" title="position:absolute 方法"></a>position:absolute 方法</h5><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">*&#123;</div><div class="line">        <span class="attribute">margin</span>: <span class="number">0</span>;</div><div class="line">        <span class="attribute">padding</span>: <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="selector-id">#left</span>&#123;</div><div class="line">        <span class="attribute">background-color</span>: dodgerblue;</div><div class="line">        <span class="attribute">width</span>: <span class="number">200px</span>;</div><div class="line">        <span class="attribute">position</span>: absolute;</div><div class="line">    &#125;</div><div class="line">    <span class="selector-id">#right</span>&#123;</div><div class="line">        <span class="attribute">background-color</span>: mediumseagreen;</div><div class="line">        <span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">        <span class="attribute">position</span>: absolute;</div><div class="line">        <span class="attribute">margin-left</span>: <span class="number">200px</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="selector-tag">div</span>&#123;</div><div class="line">        <span class="attribute">height</span>: <span class="number">100%</span>;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h5 id="float-方法"><a href="#float-方法" class="headerlink" title="float 方法"></a>float 方法</h5><figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">html</span>,<span class="selector-tag">body</span>&#123;</div><div class="line">            <span class="attribute">margin</span>: <span class="number">0</span>;</div><div class="line">            <span class="attribute">padding</span>: <span class="number">0</span>;</div><div class="line">            <span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">            <span class="attribute">height</span>: <span class="number">100%</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="selector-id">#left</span>&#123;</div><div class="line">            <span class="attribute">background-color</span>: dodgerblue;</div><div class="line">            <span class="attribute">width</span>: <span class="number">200px</span>;</div><div class="line">            <span class="attribute">float</span>: left;</div><div class="line">            <span class="attribute">position</span>: relative;     <span class="comment">//让z-index生效</span></div><div class="line">        &#125;</div><div class="line">        <span class="selector-id">#right</span>&#123;</div><div class="line">            <span class="attribute">background-color</span>: mediumseagreen;</div><div class="line">            <span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">            <span class="attribute">float</span>: right;</div><div class="line">            <span class="attribute">margin-left</span>: -<span class="number">200px</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="selector-tag">div</span>&#123;</div><div class="line">            <span class="attribute">height</span>: <span class="number">100%</span>;</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">兼容性</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">float，absolute</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -198,17 +202,119 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/27/layout/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/08/26/dom/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">dom操作碰到的一些问题</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#两栏布局"><span class="toc-number">1.</span> <span class="toc-text">两栏布局</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#position-absolute-方法"><span class="toc-number">1.1.</span> <span class="toc-text">position:absolute 方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#float-方法"><span class="toc-number">1.2.</span> <span class="toc-text">float 方法</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
+	
   
 
-    
+  
+  
+
+  
+
+  
 
 
           </div>
@@ -231,9 +337,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
