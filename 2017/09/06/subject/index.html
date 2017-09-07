@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: DOM操作 | Bright_Quiet&#39;s Blog</title>
+  <title>&#39;subject&#39; | Bright_Quiet&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这里是Bright_Quiet的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Bright_Quiet&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/tags/DOM操作/index.html">
+  <meta name="description" content="前端面试中常见的算法题">
+<meta name="keywords" content="原生js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="&#39;subject&#39;">
+<meta property="og:url" content="http://yoursite.com/2017/09/06/subject/index.html">
 <meta property="og:site_name" content="Bright_Quiet&#39;s Blog">
-<meta property="og:description" content="这里是Bright_Quiet的博客">
+<meta property="og:description" content="前端面试中常见的算法题">
+<meta property="og:updated_time" content="2017-09-06T06:37:18.913Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bright_Quiet&#39;s Blog">
-<meta name="twitter:description" content="这里是Bright_Quiet的博客">
+<meta name="twitter:title" content="&#39;subject&#39;">
+<meta name="twitter:description" content="前端面试中常见的算法题">
   
     <link rel="alternative" href="/atom.xml" title="Bright_Quiet&#39;s Blog" type="application/atom+xml">
   
@@ -140,48 +142,50 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-subject" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/26/dom/" class="archive-article-date">
-  	<time datetime="2017-08-26T06:53:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-26</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/26/dom/">dom操作碰到的一些问题</a>
+    <h1 class="article-title" itemprop="name">
+      &#39;subject&#39;
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/09/06/subject/" class="archive-article-date">
+  	<time datetime="2017-09-06T05:12:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>前端面试中常见的算法题<br><a id="more"></a></p>
+<h4 id="1、数组去重"><a href="#1、数组去重" class="headerlink" title="1、数组去重"></a>1、数组去重</h4><figure class="highlight haxe"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">Array</span>.prototype.unique=<span class="function"><span class="keyword">function</span></span>(arr)&#123;</div><div class="line">        <span class="keyword">var</span> <span class="keyword">new</span><span class="type">Arr</span>=[];</div><div class="line">        arr.map(<span class="function"><span class="keyword">function</span></span>(e)&#123;</div><div class="line">            <span class="keyword">if</span>(<span class="keyword">new</span><span class="type">Arr</span>.indexOf(e)==<span class="number">-1</span>)&#123;</div><div class="line">                <span class="keyword">new</span><span class="type">Arr</span>.push(e);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span><span class="type">Arr</span>;</div><div class="line">    &#125;;</div><div class="line">    <span class="keyword">var</span> a=[<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>];</div><div class="line">    console.log(a.unique(a));</div></pre></td></tr></table></figure>
+<h4 id="2、判断是否是回文"><a href="#2、判断是否是回文" class="headerlink" title="2、判断是否是回文"></a>2、判断是否是回文</h4><figure class="highlight processing"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">String</span>.prototype.judge=function(<span class="built_in">str</span>)&#123;</div><div class="line">        <span class="keyword">return</span> <span class="built_in">str</span>==<span class="built_in">str</span>.<span class="built_in">split</span>(<span class="string">''</span>).<span class="built_in">reverse</span>().<span class="built_in">join</span>(<span class="string">''</span>);</div><div class="line">    &#125;;</div><div class="line">    var a=<span class="string">'abcba'</span>;</div><div class="line">    console.<span class="built_in">log</span>(a.judge(a));</div></pre></td></tr></table></figure>
+<h4 id="3、统计一个字符串出现最多的字母"><a href="#3、统计一个字符串出现最多的字母" class="headerlink" title="3、统计一个字符串出现最多的字母"></a>3、统计一个字符串出现最多的字母</h4><figure class="highlight haxe"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">String</span>.prototype.num=<span class="function"><span class="keyword">function</span></span>(str)&#123;</div><div class="line">        <span class="keyword">var</span> <span class="keyword">new</span><span class="type">arr</span>=[];</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;str.length;i++)&#123;</div><div class="line">            <span class="keyword">if</span>(!<span class="keyword">new</span><span class="type">arr</span>[str.charAt(i)])&#123;</div><div class="line">                <span class="keyword">new</span><span class="type">arr</span>[str.charAt(i)] = <span class="number">1</span>;</div><div class="line">            &#125;<span class="keyword">else</span>&#123;</div><div class="line">                <span class="keyword">new</span><span class="type">arr</span>[str.charAt(i)] +=<span class="number">1</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        console.log(<span class="keyword">new</span><span class="type">arr</span>);</div><div class="line">        <span class="keyword">var</span> maxChar=<span class="string">''</span>;</div><div class="line">        <span class="keyword">var</span> maxValue=<span class="number">1</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> k <span class="keyword">in</span> <span class="keyword">new</span><span class="type">arr</span>)&#123;</div><div class="line">            <span class="keyword">if</span>(<span class="keyword">new</span><span class="type">arr</span>[k]&gt;maxValue)&#123;</div><div class="line">                maxValue=<span class="keyword">new</span><span class="type">arr</span>[k];</div><div class="line">                maxChar=k;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="string">'出现最多的字符是'</span>+maxChar +<span class="string">' 一共出现了'</span>+maxValue+<span class="string">'次'</span>;</div><div class="line">    &#125;;</div><div class="line">    <span class="keyword">var</span> a=<span class="string">'aadddssvvcd'</span>;</div><div class="line">    console.log(a.num(a));</div></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">DOM操作</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">原生js</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -198,17 +202,119 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/09/06/subject/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/08/27/layout/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">两栏布局和三栏布局（自适应）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、数组去重"><span class="toc-number">1.</span> <span class="toc-text">1、数组去重</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、判断是否是回文"><span class="toc-number">2.</span> <span class="toc-text">2、判断是否是回文</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、统计一个字符串出现最多的字母"><span class="toc-number">3.</span> <span class="toc-text">3、统计一个字符串出现最多的字母</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
+	
   
 
-    
+  
+  
+
+  
+
+  
 
 
           </div>
@@ -231,9 +337,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
