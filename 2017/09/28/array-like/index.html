@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Category: javascript | Bright_Quiet&#39;s Blog</title>
+  <title>类数组对象 | Bright_Quiet&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这里是Bright_Quiet的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Bright_Quiet&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/categories/javascript/index.html">
+  <meta name="description" content="昨天去网易面试的时候，面试官问我了解类数组吗？我只想起了arguments和转化成数组的方法，由于平时类数组对象用的少，觉得有必要再回顾一下了。">
+<meta name="keywords" content="类数组">
+<meta property="og:type" content="article">
+<meta property="og:title" content="类数组对象">
+<meta property="og:url" content="http://yoursite.com/2017/09/28/array-like/index.html">
 <meta property="og:site_name" content="Bright_Quiet&#39;s Blog">
-<meta property="og:description" content="这里是Bright_Quiet的博客">
+<meta property="og:description" content="昨天去网易面试的时候，面试官问我了解类数组吗？我只想起了arguments和转化成数组的方法，由于平时类数组对象用的少，觉得有必要再回顾一下了。">
+<meta property="og:updated_time" content="2017-10-05T03:30:29.536Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bright_Quiet&#39;s Blog">
-<meta name="twitter:description" content="这里是Bright_Quiet的博客">
+<meta name="twitter:title" content="类数组对象">
+<meta name="twitter:description" content="昨天去网易面试的时候，面试官问我了解类数组吗？我只想起了arguments和转化成数组的方法，由于平时类数组对象用的少，觉得有必要再回顾一下了。">
   
     <link rel="alternative" href="/atom.xml" title="Bright_Quiet&#39;s Blog" type="application/atom+xml">
   
@@ -140,36 +142,42 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-array-like" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/28/array-like/" class="archive-article-date">
-  	<time datetime="2017-09-28T03:58:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-28</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/28/array-like/">类数组对象</a>
+    <h1 class="article-title" itemprop="name">
+      类数组对象
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/09/28/array-like/" class="archive-article-date">
+  	<time datetime="2017-09-28T03:58:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>昨天去网易面试的时候，面试官问我了解类数组吗？我只想起了arguments和转化成数组的方法，由于平时类数组对象用的少，觉得有必要再回顾一下了。<br><a id="more"></a></p>
+<h4 id="什么是类数组"><a href="#什么是类数组" class="headerlink" title="什么是类数组"></a>什么是类数组</h4><p>类数组的定义，拥有length和索引，但是不具有数组的方法</p>
+<h5 id="1、dom方法"><a href="#1、dom方法" class="headerlink" title="1、dom方法"></a>1、dom方法</h5><figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;<span class="keyword">div</span>&gt;<span class="number">1</span>&lt;/<span class="keyword">div</span>&gt;</div><div class="line">&lt;<span class="keyword">div</span>&gt;<span class="number">2</span>&lt;/<span class="keyword">div</span>&gt;</div><div class="line">&lt;<span class="keyword">div</span>&gt;<span class="number">3</span>&lt;/<span class="keyword">div</span>&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 获取所有div</span></div><div class="line"><span class="keyword">let</span> arrayLike = <span class="built_in">document</span>.querySelectorAll(<span class="string">'div'</span>)</div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(arrayLike))  <span class="comment">// [object NodeList]</span></div><div class="line"><span class="built_in">console</span>.log(arrayLike.length) <span class="comment">// 3</span></div><div class="line"><span class="built_in">console</span>.log(arrayLike[<span class="number">0</span>]) <span class="comment">//&lt;div&gt;1&lt;/div&gt;</span></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Array</span>.isArray(arrayLike)) <span class="comment">// false</span></div><div class="line">arrayLike.push(<span class="string">'push'</span>) </div><div class="line"><span class="comment">// Uncaught TypeError: arrayLike.push is not a function(…)</span></div></pre></td></tr></table></figure>
+<p>这个arrayLike的 NodeList，有length，也能用数组下标访问，但是使用Array.isArray测试时，却告诉我们它不是数组。直接使用push方法时，当然也会报错。<br>但是，我们可以用slice方法将其转化为数组,然后再调用数组的方法<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let arr = Array<span class="selector-class">.prototype</span><span class="selector-class">.slice</span><span class="selector-class">.call</span>(arrayLike, <span class="number">0</span>)</div><div class="line">console.log(Array.isArray(arr)) <span class="comment">// true</span></div><div class="line">arr.push(<span class="string">'push something to arr'</span>)</div><div class="line">console.log(arr[arr<span class="selector-class">.length</span> - <span class="number">1</span>]) <span class="comment">// push something to arr</span></div></pre></td></tr></table></figure></p>
+<h5 id="2、类数组对象"><a href="#2、类数组对象" class="headerlink" title="2、类数组对象"></a>2、类数组对象</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> arrayLikeObj = &#123;</div><div class="line">  length: <span class="number">2</span>,</div><div class="line">  <span class="number">0</span>: <span class="string">'This is Array Like Object'</span>,</div><div class="line">  <span class="number">1</span>: <span class="literal">true</span></div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(arrayLikeObj.length) <span class="comment">// 2</span></div><div class="line"><span class="built_in">console</span>.log(arrayLikeObj[<span class="number">0</span>]) <span class="comment">// This is Array Like Object</span></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Array</span>.isArray(arrayLikeObj)) <span class="comment">// false</span></div><div class="line"><span class="keyword">let</span> arrObj = <span class="built_in">Array</span>.prototype.slice.call(arrayLikeObj, <span class="number">0</span>)</div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Array</span>.isArray(arrObj)) <span class="comment">// true</span></div></pre></td></tr></table></figure>
+<p>一个对象，加入了length属性，再用Array的原型方法处理一下，摇身一变成为了真的数组。</p>
+<h4 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h4><p>常见的类数组一般有arguments对象和DOM返回的结果，如getElementsByTagName()，想要将其变为数组的话利用Array.prototype.slice.call()方法即可。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -181,7 +189,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -198,472 +206,119 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/09/28/array-like/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/27/layout/" class="archive-article-date">
-  	<time datetime="2017-08-27T10:59:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-27</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2017/08/27/layout/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">两栏布局和三栏布局（自适应）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/27/layout/">两栏布局和三栏布局（自适应）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">两栏布局，三栏布局</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/javascript/" class="article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/学习笔记/" class="article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#什么是类数组"><span class="toc-number">1.</span> <span class="toc-text">什么是类数组</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1、dom方法"><span class="toc-number">1.1.</span> <span class="toc-text">1、dom方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2、类数组对象"><span class="toc-number">1.2.</span> <span class="toc-text">2、类数组对象</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#结语"><span class="toc-number">2.</span> <span class="toc-text">结语</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/26/dom/" class="archive-article-date">
-  	<time datetime="2017-08-26T06:53:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/26/dom/">dom操作碰到的一些问题</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">DOM操作</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/javascript/" class="article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/学习笔记/" class="article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/20/clouse/" class="archive-article-date">
-  	<time datetime="2017-08-20T06:58:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/20/clouse/">有关闭包的最终值问题</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">闭包</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/javascript/" class="article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/学习笔记/" class="article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/12/windowEvent/" class="archive-article-date">
-  	<time datetime="2017-08-12T05:11:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/12/windowEvent/">var e=e||window.event语句的含义</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">兼容性</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/javascript/" class="article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/学习笔记/" class="article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/08/canvas-line/" class="archive-article-date">
-  	<time datetime="2017-08-08T08:34:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/08/canvas-line/">利用canvas画线遇到的诸多问题</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">canvas</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/javascript/" class="article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/学习笔记/" class="article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/03/conversion/" class="archive-article-date">
-  	<time datetime="2017-08-03T08:31:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/03/conversion/">关于数据转换的巩固</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">基本数据类型</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/javascript/" class="article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/学习笔记/" class="article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/03/getUrl/" class="archive-article-date">
-  	<time datetime="2017-08-03T03:28:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/03/getUrl/">获取url传递的参数</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/javascript/" class="article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/学习笔记/" class="article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/01/subject/" class="archive-article-date">
-  	<time datetime="2017-08-01T03:12:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/01/subject/">算法题</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">原生js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/javascript/" class="article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/学习笔记/" class="article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/01/scroll/" class="archive-article-date">
-  	<time datetime="2017-08-01T01:59:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/01/scroll/">实现父元素容器不跟随子元素scroll滚动</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/javascript/" class="article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/学习笔记/" class="article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
+	
   
 
-    
+  
+  
+
+  
+
+  
 
 
           </div>
@@ -686,10 +341,10 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
 		root: "/",
